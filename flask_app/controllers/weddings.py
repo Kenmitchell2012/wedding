@@ -52,8 +52,8 @@ def edit_wedding(wedding_id):
     if 'user_id' not in session:
         return redirect('/login')
     user = User.get_by_id(session['user_id'])
-    show = Wedding.get_wedding_by_id(wedding_id)
-    return render_template('edit.html', show=show, user=user)
+    wedding = Wedding.get_wedding_by_id(wedding_id)
+    return render_template('edit.html', wedding=wedding, user=user)
 
 # delete a wedding
 @app.route('/wedding/delete/<int:id>')

@@ -8,12 +8,13 @@
             <br>
             <form action="/create/wedding" method="POST">
                 <div class="row mb-3">
-                    <input type="hidden" value="user_id" name="user_id">
+                  <input type="hidden" value="user_id" name="user_id">
                 
                   <label for="wedding_side" class="col-sm-2 col-form-label">Wedding Side:</label>
                   <div class="col-sm-10">
                     <select required class="form-select" name="wedding_side" aria-label="Default select example">
-                        <option selected>Select Wedding Side</option>
+                        <option >Select Wedding Side</option>
+                        <option selected value="">{{ wedding.wedding_side|capitalize }}</option>
                         <option value="bride">Bride</option>
                         <option value="groom">Groom</option>
                       </select>
@@ -21,7 +22,8 @@
                   <label for="meal" class="col-sm-2 col-form-label">Meal:</label>
                   <div class="col-sm-10">
                     <select class="form-select" name="meal" aria-label="Default select example">
-                        <option value="{{wedding.meal}}" selected>{{ wedding.meal }}</option>
+                        <option>Select a Meal</option>
+                        <option selected value="{{wedding.meal}}">{{ wedding.meal|capitalize }}</option>
                         <option value="chicken">Chicken</option>
                         <option value="steak">Steak</option>
                         <option value="vegan dish">Vegan Dish</option>
@@ -32,6 +34,7 @@
                   <div class="col-sm-10">
                     <select class="form-select" name="drink" aria-label="Default select example">
                         <option selected>Select Drink Choice</option>
+                        <option value="{{wedding.drink}}">{{ wedding.drink|capitalize }}</option>
                         <option value="wine">Wine</option>
                         <option value="coke">Coke</option>
                         <option value="burbon">Burbon</option>
@@ -41,7 +44,7 @@
                   </div>
                   <label for="favorite_memory" class="col-sm-2 col-form-label">Favorite Memory:</label>
                   <div class="col-sm-10">
-                    <textarea class="form-text" name="favorite_memory" id="favorite_memory" cols="30" rows="10" placeholder="Enter your Favorite memory!"></textarea>
+                    <textarea class="form-text" name="favorite_memory" id="favorite_memory" cols="30" rows="10" placeholder="Enter your Favorite memory!">{{ wedding.favorite_memory|capitalize }}</textarea>
                   </div>
                 </div>
                 <input type="submit" class="btn btn-primary" value="Add RSVP">
