@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+    {% block content %}
+        <div class="container">
+            <br>
+            {% for message in get_flashed_messages(category_filter=['wedding']) %}
+                <h4 class="alert alert-danger alert-dismissible fade show">{{ message }}</h4>
+            {% endfor %}
+            <br>
+            <form action="/create/wedding" method="POST">
+                <div class="row mb-3">
+                    <input type="hidden" value="{{user.id}}" name="user_id">
+                
+                  <label for="wedding_side" class="col-sm-2 col-form-label">Wedding Side:</label>
+                  <div class="col-sm-10">
+                    <select required class="form-select" name="wedding_side" aria-label="Default select example">
+                        <option selected>Select Wedding Side</option>
+                        <option value="bride">Bride</option>
+                        <option value="groom">Groom</option>
+                      </select>
+                  </div>
+                  <label for="meal" class="col-sm-2 col-form-label">Meal:</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" name="meal" aria-label="Default select example">
+                        <option selected>Select Meal Choice</option>
+                        <option value="chicken">Chicken</option>
+                        <option value="steak">Steak</option>
+                        <option value="vegan dish">Vegan Dish</option>
+                        <option value="kids meal">Kid's meal</option>
+                    </select>
+                  </div>
+                  <label for="drink" class="col-sm-2 col-form-label">Drink:</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" name="drink" aria-label="Default select example">
+                        <option selected>Select Drink Choice</option>
+                        <option value="wine">Wine</option>
+                        <option value="coke">Coke</option>
+                        <option value="burbon">Burbon</option>
+                        <option value="water">Water</option>
+                        <option value="kids drink">Kid's drink</option>
+                    </select>
+                  </div>
+                  <label for="favorite_memory" class="col-sm-2 col-form-label">Favorite Memory:</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-text" name="favorite_memory" id="favorite_memory" cols="30" rows="10" placeholder="Enter your Favorite memory!"></textarea>
+                  </div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Add RSVP">
+            </form>
+        </div>
+
+
+     {% endblock %}

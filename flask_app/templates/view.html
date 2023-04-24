@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+        <div class="container">
+            <br>
+            <div class="mx-auto card shadow" style="width: auto; font: 20px sans-serif; ">
+                <div class="card-body">
+                  <h4 class="card-title">This is the RSVP of {{ user.first_name }}</h4>
+                  <h5 class="card-title">Wedding side: {{ wedding.wedding_side|capitalize }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Meal of Choice: {{ wedding.meal|capitalize }}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Drink of Choice: {{ wedding.drink|capitalize }}</h6>
+                  <p class="card-text">Favorite Memory: {{ wedding.favorite_memory|capitalize }}</p>
+                </div>
+              </div>
+
+        </div>
+    {% endblock %}

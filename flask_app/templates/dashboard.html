@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+        <h1 class="text-center">Hello {{user.first_name}}</h1>
+        <a style="font-size: 20px;" class="nav-link text-center" href="/create">Create RSVP</a>
+        <div class="container">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Guest Name</th>
+                    <th scope="col">Wedding Side</th>
+                    <th scope="col">Meal</th>
+                    <th scope="col">Drink</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for wedding in weddings %}
+                    <tr>
+                        <td>{{wedding.creator.first_name}}</td>
+                        <td>{{wedding.wedding_side|capitalize}}</td>
+                        <td>{{wedding.meal|capitalize}}</td>
+                        <td>{{wedding.drink|capitalize}}</td>
+                        <td>
+                            <a class="btn btn-success" href="/wedding/view/{{wedding.id}}">View Wedding</a>
+                            {% if session['user_id'] == wedding.creator.id %}
+                            <a href="/wedding/edit/{{wedding.id}}" class="btn btn-secondary">Edit</a>
+                            <a href="/wedding/delete/{{wedding.id}}" class="btn btn-danger">Delete</a>
+                            {% endif %}
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+
+        </div>
+
+    {% endblock %}
