@@ -50,7 +50,7 @@ class Wedding:
         if 'meal' not in form_data or form_data['meal'] not in ['chicken', 'steak', 'vegan dish', 'kids meal']:
             flash("Please select a meal option!", 'wedding')
             is_valid = False
-        if 'drink' not in form_data or form_data['drink'] not in ['wine', 'coke', 'bourbon', 'water', "kid's drink" ]:
+        if 'drink' not in form_data or form_data['drink'] not in ['wine', 'coke', 'bourbon', 'water', "kids_drink" ]:
             flash("Please select a drink option!", 'wedding')
             is_valid = False
         if len(form_data['favorite_memory']) < 10:
