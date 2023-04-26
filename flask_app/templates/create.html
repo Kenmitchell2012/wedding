@@ -7,20 +7,21 @@
             {% endfor %}
             <br>
             <form class="p-4 border shadow gap-0" action="/create/wedding" method="POST">
-              <input type="hidden" value="{{user.id}}" name="user_id">
-              <div class="mb-3">
-                <label for="wedding_side" class="form-label">Wedding</label>
+                <input type="hidden" value="{{user.id}}" name="user_id">
+                <div class="mb-3">
+                  <label for="wedding_side" class="form-label">Wedding</label>
                 <div class="col-sm-10">
                   <select required class="form-select" name="wedding_side" aria-label="Default select example">
                       <option selected value="Select Wedding Side">Select Wedding Side</option>
                       <option value="bride">Bride</option>
                       <option value="groom">Groom</option>
-                    </select>
-              </div>
+                  </select>
+                </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
+              <!-- Need to fisih create form -->
                 <!-- <div class="row mb-3">
                     <input type="hidden" value="{{user.id}}" name="user_id">               
                     <label for="wedding_side" class="form-control col-sm-2 col-form-label">Wedding Side:</label>
