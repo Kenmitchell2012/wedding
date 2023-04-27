@@ -6,12 +6,13 @@
                 <h4 class="alert alert-danger alert-dismissible fade show">{{ message }}</h4>
             {% endfor %}
                 <div class="row mb-3">
+                  
                   <form action="/create/wedding" method="post">
                       <input type="hidden" value="{{user.id}}" name="user_id">
-                      <div class="col-sm-10 input-group mb-3">
-                          <label class="input-group-text" for="inputGroupSelect01 wedding_side">Wedding Side</label>
-                          <select name="wedding_side" class="form-check form-select" id="inputGroupSelect01">
-                              <option selected>Choose...</option>
+                      <label for="meal" class="col-sm-2 col-form-label">Wedding Side:</label>
+                      <div class="col-sm-10">                   
+                          <select class="form-select" name="wedding_side" aria-label="Default select example">
+                            <option selected value="Select Wedding Side">Select Wedding Side</option>
                               <option value="bride">Bride</option>
                               <option value="groom">Groom</option>
                           </select>
