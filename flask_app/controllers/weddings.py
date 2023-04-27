@@ -55,6 +55,25 @@ def edit_wedding(wedding_id):
     wedding = Wedding.get_wedding_by_id(wedding_id)
     return render_template('edit.html', wedding=wedding, user=user)
 
+# update a wedding
+@app.route('/wedding/update/<int:wedding_id>', methods=['POST'])
+def update_wedding(wedding_id):
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    if not Wedding.validate_wedding(request.form):
+        return redirect(f'/wedding/edit/{wedding_id}')
+    data = {
+        'user_id': session['user_id'],
+        'wedding_side': request.form['wedding_side'],
+        'meal': request.form['meal'],
+        'drink': request.form['drink'],
+        'favorite_memory': request.form['favorite_memory']
+    }
+    print(data, 'wedding data')
+    Wedding.update_wedding(wedding_id, data)
+    flash('Wedding successfully updated', 'update_book')
+    return redirect(url_for('dashboard'))
+
 # delete a wedding
 @app.route('/wedding/delete/<int:id>')
 def delete_wedding(id):

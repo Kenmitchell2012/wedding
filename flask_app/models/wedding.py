@@ -79,6 +79,17 @@ class Wedding:
         results = connectToMySQL(db).query_db(query, {'id': id})
         return cls(results[0])
     
+    # update the wedding
+    @classmethod
+    def update_wedding(cls, wedding_id, data):
+        query = """
+                UPDATE weddings SET wedding_side = %(wedding_side)s, meal = %(meal)s, drink = %(drink)s, favorite_memory = %(favorite_memory)s WHERE id = %(id)s;
+                """
+        data['id'] = wedding_id
+        results = connectToMySQL(db).query_db(query, data)
+        return results
+
+    
     # delete the wedding
     @classmethod
     def delete(cls,data):

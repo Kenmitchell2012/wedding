@@ -6,7 +6,7 @@
                 <h4 class="alert alert-danger alert-dismissible fade show">{{ message }}</h4>
             {% endfor %}
             <br>
-            <form action="/create/wedding" method="POST">
+            <form action="/wedding/update/{{wedding.id}}" method="POST">
                 <div class="row mb-3">
                   <input type="hidden" value="user_id" name="user_id">
                 
